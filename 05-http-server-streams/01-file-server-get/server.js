@@ -13,8 +13,6 @@ server.on('request', (req, res) => {
   switch (req.method) {
     case 'GET':
       const fileStream = fs.createReadStream(filepath,{highWaterMark: 6});
-
-      fileStream.on('data', (data) => {console.log(data.toString())})
       
       res.on('close', () => {
         if (res.finished) return;
